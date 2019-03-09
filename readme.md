@@ -1,3 +1,7 @@
 This is a sentiment analysis tool using Natural Language Processing. To address the problems regarding conventional method for finding reviews, we suggest our system that will analyse the user generated data or reviews from twitter and come to a single conclusion, about what most people think about the query user entered. It is a tool which can accurately do sentimental analysis about user submitted topics or tweets .The project makes use of dual training which will increase the accuracy of the results. The project involves categorizing the tweets into positive, neutral or negative review and summarizes and visualizes the response.
+
+
 Input : The input to the system will be given by the users. The web application will contain an input text area were user can enter their tweets , queries or the topics that they want to analyse by clicking on the button Search. These topics can vary from movie reviews, product reviews, socio-religious issues, political issues etc. The application will also have a limit field in which the user can specify the number of tweets that he wants to analyse. Based on the topic given by the user, tweets are collected , analysed and is classified to positive, negative or neutral. The user query field in mandatory because the analysis process cannot be commenced without a search topic
+
+
 Output : The system classifies the tweets as positive, negative or neutral. The tweets along with the sentiment is shown as output.
