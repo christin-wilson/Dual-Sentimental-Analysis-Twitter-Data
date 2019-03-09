@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.10.3/css/bootstrap-tour-standalone.css" rel="stylesheet">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.10.3/js/bootstrap-tour-standalone.js"></script>
+    </head>
+
+    <body>
+
+  <script type="text/javascript">function stock2(){
+    $("#switch-2").toggle();
+}</script>
+
+<script type="text/javascript">
+// Instance the tour
+var tour = new Tour({
+  steps: [
+  {
+    element: "#tw_query",
+    title: "Query",
+    content: "Enter a query here. eg Modi, Yahoo Stocks. Tweets corresponding to this will be collected for analysis"
+  },
+  {
+    element: "#tw_limit",
+    title: "Limit",
+    content: "This field specifies the number of tweets to be downloaded for analysis. Large numbers can take time"
+  },
+  {
+    element: "#stock_option",
+    title: "Stock Option",
+    content: "Select this option if you need stock performance along with final output"
+  }
+], storage: false
+});
+
+// Initialize the tour
+tour.init(true);
+
+function tour_start()
+{
+  // Start the tour
+tour.start(true);
+}
+</script>
+
+ <div class="row">
+      <div class="col s12 m12">
+        <div class="card-panel light-blue">
+          <span class="white-text">Twitter Sentiment Analyzer
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="row" >
+    <form id="search_form" action="process" method="GET" class="col s12" >
+      <div class="row" style=" position: relative;
+  top: 50%;
+  transform:translate(+15%,+20%); 
+  margin: 0 auto;
+
+  ">
+        <div class="input-field col s6">
+          <a>Enter Query here</a>
+          <input placeholder="Enter query here" name="tw_query" id="tw_query" type="text" class="validate">
+          <a>Enter Limit here</a>
+          <input value="5" name="tw_limit" id="tw_limit" type="text" class="validate">
+          <div class="switch"  style=" position: relative;
+  top: 50%;
+  transform:translate(+0%,+20%); 
+  margin: 0 auto;
+
+  ">
+    <label id="stock_option">
+      Stock Analysis: &nbsp &nbsp &nbsp No
+      <input name="stock_option"  type="checkbox" onclick="stock2()">
+      <span class="lever" ></span>
+      Yes
+    </label>
+      <div id="switch-2" class="switch-2"  style=" position: relative;
+  top: 50%;
+  transform:translate(+0%,+60%); 
+  margin: 0 auto; display: none;
+
+  ">
+      <a>Stock symbol</a>
+          <input placeholder="Enter stock symbol here" name="stock_symbol" id="stock_symbol" type="text" class="validate">
+          </div>
+  </div>
+        </div>
+        <a class="waves-effect waves-light btn light-blue darken-4" style="position: relative;
+  top: 50%;
+  transform: translateY(+70%);margin: 0 auto;"  href="javascript:{}"  onclick="document.getElementById('search_form').submit();"><i class="material-icons left">search</i>Search</a>
+      </div>
+    </form>
+  </div>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;" onclick="tour_start();">
+          <a class="btn-floating btn-large red">
+            <i class="material-icons modal-trigger" >live_help</i>
+          </a>
+</div>
+    </body>
+  </html>

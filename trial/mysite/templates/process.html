@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>      
+<script>(function worker() {  $.ajax({
+    url: 'check_process?task_id={{task_id}}', 
+    success: function(data) {
+      if(data!='not_ready')
+        window.location="view?tw_query={{tw_query}}&stock_option={{stock_option}}&stock_symbol={{stock_symbol}}"
+    },
+    complete: function() {
+      // Schedule the next request when the current one's complete
+      setTimeout(worker, 5000);
+    }
+  });
+})();</script>
+
+<!--   CARD
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Card Title</span>
+              <p>Please wait while data is being downloaded</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+-->
+
+
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card-panel teal">
+          <span class="white-text">Please wait while data is being downloaded from twitter.Your task_id is {{task_id}}
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="progress">
+      <div class="indeterminate"></div>
+  </div>
+
+
+
+    </body>
+  </html>
